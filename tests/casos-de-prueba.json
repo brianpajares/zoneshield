@@ -1,0 +1,357 @@
+[
+  {
+    "id": "SS-01 mensaje legitimo sin enlace",
+    "input": {
+      "message": "Hola, te confirmo la reunion del jueves a las 10."
+    },
+    "expected": {
+      "probability": 0.0474,
+      "band": "bajo",
+      "registrable_domain": "",
+      "features": {
+        "domain_new": 0.0,
+        "lookalike_brand": 0.0,
+        "punycode": 0.0,
+        "ip_host": 0.0,
+        "shortener": 0.0,
+        "risky_tld": 0.0,
+        "many_subdomains": 0.0,
+        "at_symbol": 0.0,
+        "urgency": 0.0,
+        "payment": 0.0,
+        "credentials": 0.0,
+        "impersonation": 0.0,
+        "emergency": 0.0,
+        "prize": 0.0
+      },
+      "top_reasons": []
+    }
+  },
+  {
+    "id": "SS-02 dominio oficial antiguo",
+    "input": {
+      "message": "Tu estado de cuenta ya esta disponible.",
+      "url": "https://www.bancoandino.pe/estado",
+      "domain_age_days": 4000
+    },
+    "expected": {
+      "probability": 0.0474,
+      "band": "bajo",
+      "registrable_domain": "bancoandino.pe",
+      "features": {
+        "domain_new": 0.0,
+        "lookalike_brand": 0.0,
+        "punycode": 0.0,
+        "ip_host": 0.0,
+        "shortener": 0.0,
+        "risky_tld": 0.0,
+        "many_subdomains": 0.0,
+        "at_symbol": 0.0,
+        "urgency": 0.0,
+        "payment": 0.0,
+        "credentials": 0.0,
+        "impersonation": 0.0,
+        "emergency": 0.0,
+        "prize": 0.0
+      },
+      "top_reasons": []
+    }
+  },
+  {
+    "id": "SS-03 imitacion de banco + urgencia + clave",
+    "input": {
+      "message": "URGENTE: tu cuenta sera bloqueada en 24 horas. Ingresa tu clave aqui",
+      "url": "https://bancoandin0-seguro.top/login",
+      "domain_age_days": 5
+    },
+    "expected": {
+      "probability": 0.9973,
+      "band": "alto",
+      "registrable_domain": "bancoandin0-seguro.top",
+      "features": {
+        "domain_new": 1.0,
+        "lookalike_brand": 1.0,
+        "punycode": 0.0,
+        "ip_host": 0.0,
+        "shortener": 0.0,
+        "risky_tld": 1.0,
+        "many_subdomains": 0.0,
+        "at_symbol": 0.0,
+        "urgency": 1.0,
+        "payment": 0.0,
+        "credentials": 1.0,
+        "impersonation": 0.0,
+        "emergency": 0.0,
+        "prize": 0.0
+      },
+      "top_reasons": ["lookalike_brand", "domain_new", "credentials"]
+    }
+  },
+  {
+    "id": "SS-04 marca en subdominio de dominio ajeno",
+    "input": {
+      "message": "Verifica tu cuenta",
+      "url": "http://bancoandino.pe.verificacion-cliente.xyz/acceso",
+      "domain_age_days": 12
+    },
+    "expected": {
+      "probability": 0.9526,
+      "band": "alto",
+      "registrable_domain": "verificacion-cliente.xyz",
+      "features": {
+        "domain_new": 1.0,
+        "lookalike_brand": 1.0,
+        "punycode": 0.0,
+        "ip_host": 0.0,
+        "shortener": 0.0,
+        "risky_tld": 1.0,
+        "many_subdomains": 0.0,
+        "at_symbol": 0.0,
+        "urgency": 0.0,
+        "payment": 0.0,
+        "credentials": 0.0,
+        "impersonation": 0.0,
+        "emergency": 0.0,
+        "prize": 0.0
+      },
+      "top_reasons": ["lookalike_brand", "domain_new", "risky_tld"]
+    }
+  },
+  {
+    "id": "SS-05 estafa del familiar",
+    "input": {
+      "message": "Mama, cambie de numero. Estoy en problemas, yapeame 300 soles urgente y no le digas a nadie"
+    },
+    "expected": {
+      "probability": 0.7685,
+      "band": "alto",
+      "registrable_domain": "",
+      "features": {
+        "domain_new": 0.0,
+        "lookalike_brand": 0.0,
+        "punycode": 0.0,
+        "ip_host": 0.0,
+        "shortener": 0.0,
+        "risky_tld": 0.0,
+        "many_subdomains": 0.0,
+        "at_symbol": 0.0,
+        "urgency": 0.3333,
+        "payment": 1.0,
+        "credentials": 0.0,
+        "impersonation": 1.0,
+        "emergency": 1.0,
+        "prize": 0.0
+      },
+      "top_reasons": ["impersonation", "payment", "emergency"]
+    }
+  },
+  {
+    "id": "SS-06 acortador desconocido",
+    "input": {
+      "message": "Mira tu premio",
+      "url": "https://bit.ly/3abcXYZ",
+      "domain_age_days": null
+    },
+    "expected": {
+      "probability": 0.3682,
+      "band": "sospechoso",
+      "registrable_domain": "bit.ly",
+      "features": {
+        "domain_new": 0.3,
+        "lookalike_brand": 0.0,
+        "punycode": 0.0,
+        "ip_host": 0.0,
+        "shortener": 1.0,
+        "risky_tld": 0.0,
+        "many_subdomains": 0.0,
+        "at_symbol": 0.0,
+        "urgency": 0.0,
+        "payment": 0.0,
+        "credentials": 0.0,
+        "impersonation": 0.0,
+        "emergency": 0.0,
+        "prize": 1.0
+      },
+      "top_reasons": ["shortener", "prize", "domain_new"]
+    }
+  },
+  {
+    "id": "SS-07 IP como host + codigo",
+    "input": {
+      "message": "Ingresa el codigo de verificacion que te llego",
+      "url": "http://192.168.10.5/pago",
+      "domain_age_days": null
+    },
+    "expected": {
+      "probability": 0.7231,
+      "band": "alto",
+      "registrable_domain": "192.168.10.5",
+      "features": {
+        "domain_new": 0.3,
+        "lookalike_brand": 0.0,
+        "punycode": 0.0,
+        "ip_host": 1.0,
+        "shortener": 0.0,
+        "risky_tld": 0.0,
+        "many_subdomains": 0.0,
+        "at_symbol": 0.0,
+        "urgency": 0.0,
+        "payment": 0.0,
+        "credentials": 1.0,
+        "impersonation": 0.0,
+        "emergency": 0.0,
+        "prize": 0.0
+      },
+      "top_reasons": ["credentials", "ip_host", "domain_new"]
+    }
+  },
+  {
+    "id": "SS-08 lista Web Risk",
+    "input": {
+      "message": "Descarga tu factura",
+      "url": "https://factura-descarga.example",
+      "domain_age_days": 900,
+      "web_risk_hit": true
+    },
+    "expected": {
+      "probability": 0.99,
+      "band": "alto",
+      "registrable_domain": "factura-descarga.example",
+      "features": {
+        "domain_new": 0.0,
+        "lookalike_brand": 0.0,
+        "punycode": 0.0,
+        "ip_host": 0.0,
+        "shortener": 0.0,
+        "risky_tld": 0.0,
+        "many_subdomains": 0.0,
+        "at_symbol": 0.0,
+        "urgency": 0.0,
+        "payment": 0.0,
+        "credentials": 0.0,
+        "impersonation": 0.0,
+        "emergency": 0.0,
+        "prize": 0.0
+      },
+      "top_reasons": ["web_risk_hit"]
+    }
+  },
+  {
+    "id": "SS-09 'pin' dentro de otra palabra no cuenta",
+    "input": {
+      "message": "Compre pintura para la casa"
+    },
+    "expected": {
+      "probability": 0.0474,
+      "band": "bajo",
+      "registrable_domain": "",
+      "features": {
+        "domain_new": 0.0,
+        "lookalike_brand": 0.0,
+        "punycode": 0.0,
+        "ip_host": 0.0,
+        "shortener": 0.0,
+        "risky_tld": 0.0,
+        "many_subdomains": 0.0,
+        "at_symbol": 0.0,
+        "urgency": 0.0,
+        "payment": 0.0,
+        "credentials": 0.0,
+        "impersonation": 0.0,
+        "emergency": 0.0,
+        "prize": 0.0
+      },
+      "top_reasons": []
+    }
+  },
+  {
+    "id": "SS-10 punycode",
+    "input": {
+      "message": "Actualiza tus datos",
+      "url": "https://xn--bancondino-9db.pe/datos",
+      "domain_age_days": 20
+    },
+    "expected": {
+      "probability": 0.982,
+      "band": "alto",
+      "registrable_domain": "xn--bancondino-9db.pe",
+      "features": {
+        "domain_new": 1.0,
+        "lookalike_brand": 1.0,
+        "punycode": 1.0,
+        "ip_host": 0.0,
+        "shortener": 0.0,
+        "risky_tld": 0.0,
+        "many_subdomains": 0.0,
+        "at_symbol": 0.0,
+        "urgency": 0.0,
+        "payment": 0.0,
+        "credentials": 0.0,
+        "impersonation": 0.0,
+        "emergency": 0.0,
+        "prize": 0.0
+      },
+      "top_reasons": ["lookalike_brand", "domain_new", "punycode"]
+    }
+  },
+  {
+    "id": "SS-11 comercio legitimo no relacionado",
+    "input": {
+      "message": "Tu pedido llega manana",
+      "url": "https://cafeteria-lima.pe/pedido",
+      "domain_age_days": 2000
+    },
+    "expected": {
+      "probability": 0.0474,
+      "band": "bajo",
+      "registrable_domain": "cafeteria-lima.pe",
+      "features": {
+        "domain_new": 0.0,
+        "lookalike_brand": 0.0,
+        "punycode": 0.0,
+        "ip_host": 0.0,
+        "shortener": 0.0,
+        "risky_tld": 0.0,
+        "many_subdomains": 0.0,
+        "at_symbol": 0.0,
+        "urgency": 0.0,
+        "payment": 0.0,
+        "credentials": 0.0,
+        "impersonation": 0.0,
+        "emergency": 0.0,
+        "prize": 0.0
+      },
+      "top_reasons": []
+    }
+  },
+  {
+    "id": "SS-12 mensaje en ingles",
+    "input": {
+      "message": "Your account is suspended. Enter your password immediately",
+      "url": "https://secure-login.click/verify",
+      "domain_age_days": 3
+    },
+    "expected": {
+      "probability": 0.9241,
+      "band": "alto",
+      "registrable_domain": "secure-login.click",
+      "features": {
+        "domain_new": 1.0,
+        "lookalike_brand": 0.0,
+        "punycode": 0.0,
+        "ip_host": 0.0,
+        "shortener": 0.0,
+        "risky_tld": 1.0,
+        "many_subdomains": 0.0,
+        "at_symbol": 0.0,
+        "urgency": 0.6667,
+        "payment": 0.0,
+        "credentials": 1.0,
+        "impersonation": 0.0,
+        "emergency": 0.0,
+        "prize": 0.0
+      },
+      "top_reasons": ["domain_new", "credentials", "risky_tld"]
+    }
+  }
+]
